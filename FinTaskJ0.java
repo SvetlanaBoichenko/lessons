@@ -15,9 +15,7 @@ public class MainClass {
          ret = true;        
  
          for (int j = 1; j < s2.length(); j++) {
-           if (s2.charAt(j) == s1.charAt(i + j))              
-             continue;          
-           else { 
+           if (s2.charAt(j) != s1.charAt(i + j)) {             
              ret = false;
              break;
             }           
@@ -29,7 +27,7 @@ public class MainClass {
       
   public static void main(String[] args) {
     String s1 = "Мой свет - СССвввета!";
-    String s2 = "вве";
+    String s2 = "Свввет";
     
     if(sub_string (s1,s2))
        System.out.println("Строка 1 содeржит в себе строку 2");
