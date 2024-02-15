@@ -5,7 +5,6 @@ public class MainClass {
     if (s1.length() < s2.length())  
       return false;
   
-      int k = 0;
       boolean ret = false;
 
       for (int i = 0; i < s1.length(); i++) {
@@ -14,10 +13,10 @@ public class MainClass {
       
        if (s1.charAt(i) == s2.charAt(0)) { 
          ret = true;        
-          k = i + 1;
+ 
          for (int j = 1; j < s2.length(); j++) {
-           if (s2.charAt(j) == s1.charAt(k))              
-             k++;          
+           if (s2.charAt(j) == s1.charAt(i + j))              
+             continue;          
            else { 
              ret = false;
              break;
@@ -29,8 +28,8 @@ public class MainClass {
   }
       
   public static void main(String[] args) {
-    String s1 = "Мой свет - СССвета!";
-    String s2 = "ССв";
+    String s1 = "Мой свет - СССвввета!";
+    String s2 = "вве";
     
     if(sub_string (s1,s2))
        System.out.println("Строка 1 содeржит в себе строку 2");
