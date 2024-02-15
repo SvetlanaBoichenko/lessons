@@ -9,8 +9,8 @@ public class MainClass {
       boolean ret = false;
 
       for (int i = 0; i < s1.length(); i++) {
-       if (ret == true) 
-          return ret;
+       if (ret) 
+          return true;
       
        if (s1.charAt(i) == s2.charAt(0)) { 
          ret = true;        
@@ -25,12 +25,12 @@ public class MainClass {
           }         
         }      
       }
-    return ret;    
+    return false;    
   }
       
   public static void main(String[] args) {
     String s1 = "Мой свет - СССвета!";
-    String s2 = "СССв";
+    String s2 = "ССв";
     
     if(sub_string (s1,s2))
        System.out.println("Строка 1 содeржит в себе строку 2");
