@@ -7,16 +7,14 @@ public class MainClass {
   
       boolean ret = false;
 
-      for (int i = 0; i < s1.length(); i++) {
+      for (int i = 0; i < s1.length()-s2.length(); i++) {
        if (ret) 
           return true;
           
          ret = true;        
  
          for (int j = 0; j < s2.length(); j++) {
-           if((j + i) >=  s1.length())
-            return false;
-            
+
            if (s2.charAt(j) != s1.charAt(i + j)) {             
              ret = false;
              break;
@@ -29,7 +27,7 @@ public class MainClass {
       
   public static void main(String[] args) {
     String s1 = "12345";
-    String s2 = "4545";
+    String s2 = "4567";
     
     if(sub_string (s1,s2))
        System.out.println("Строка 1 содeржит в себе строку 2");
