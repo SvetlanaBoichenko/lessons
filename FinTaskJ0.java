@@ -7,7 +7,7 @@ public class MainClass {
            if (s2.charAt(j) != s1.charAt(i + j))  
              break;
              
-            if ((j) == s2.length()-1)
+            if (j == s2.length()-1)
               return true;
             }                      
         }            
@@ -15,8 +15,8 @@ public class MainClass {
   }
       
   public static void main(String[] args) {
-    String s1 = "12344455";
-    String s2 = "44";
+    String s1 = "1234567";
+    String s2 = "678";
     
     if(sub_string (s1,s2))
        System.out.println("Строка 1 содeржит в себе строку 2");
