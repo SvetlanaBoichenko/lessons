@@ -1,8 +1,8 @@
  class ADevice {
-    protected   String name; // Имя 
-    protected   int num ;    // номер (порядковый)
-    protected   int type;    // Тип устр    
-    protected boolean error; // 
+    private   String name; // Имя 
+    private   int num ;    // номер (порядковый)
+    private   int type;    // Тип устр    
+    private boolean error; // 
     char out_data = ' ';
 
     ADevice (String name,int num, int type) {
@@ -18,8 +18,8 @@
 }
 //-----------------------------------
 class APort extends ADevice {
-      protected int wait_time;  // сколько времени ждать ответ
-      protected int speed;     // Скорость обмена
+      private int wait_time;  // сколько времени ждать ответ
+      private int speed;     // Скорость обмена
           
      APort (String name, int num, int type, int speed) {
        super(name, num, type);
@@ -33,7 +33,7 @@ class APort extends ADevice {
 }
 //------------------------------------- 
  class AInterface extends ADevice {
-  protected int mode;  // client-server 
+  private int mode;  // client-server 
   
   AInterface (String name, int num, int type, int m) { 
     super(name, num, type);
@@ -46,7 +46,7 @@ class APort extends ADevice {
 }
 //----------------------------------------
 class AProtocol extends ADevice {
-      int pr_type;  // Тип правил кодировки
+      private int pr_type;  // Тип правил кодировки
  
       AProtocol (String name, int num, int type) {
         super(name, num, type);      
