@@ -4,17 +4,6 @@
     private   int type;    // Тип устр    
     private boolean error; // 
     char out_data = ' ';
-
-    ADevice (String name,int num, int type) {
-        this.name = name;
-        this.num = num;
-        this.type = type;     
-        this.error = false;
-    } 
-
-    char write_out_data ()  {                 
-          return (this.out_data = 'D');
-      }
 }
 //-----------------------------------
 class APort extends ADevice {
