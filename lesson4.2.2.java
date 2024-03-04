@@ -1,4 +1,4 @@
-import java.util.Random;
+iimport java.util.Random;
 
  class ADevice {
  
@@ -28,9 +28,7 @@ class AKran extends ADevice {
  }   
 
  public int foo () { 
-  if (command == 1)
-    return state = state_sen1 + state_sen2;
-    
+  
   return 100;  
   } 
 }
@@ -43,10 +41,7 @@ class AKlapan extends ADevice {
  }   
 
  public int foo ()  { 
-    if (command > 0) {
-       state = command;
-       return state;
-    }  
+  
     return 200;  
   } 
 
@@ -66,12 +61,12 @@ public class Main {
   for (int i = 0; i < 10; i++) {
     j = rand.nextInt(2) - 1;
     if(j == 0)
-      devtab[i] = new AKlapan ("klapan1", 3);
+      devtab[i] = new AKlapan ("klapan1", 1);
     else
-       devtab[i] = new AKran ("kran1", 1);
+       devtab[i] = new AKran ("kran1", 3);
   
   }
-   for (int i = 0; i < 10; i++) {
+   for (int i = 0; i < 10; i ++) {
       dev_state = devtab[i].foo();
   
       System.out.println ("state = " + dev_state);
