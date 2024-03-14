@@ -26,7 +26,7 @@ public class test4 {
             
       if (pos == n) {  
         count++; 
-        System.out.print(s.charAt(i)); 
+        System.out.println(s.charAt(i)); 
       }
    }
   
