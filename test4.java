@@ -26,13 +26,13 @@ public class test4 {
             
       if (pos == n) {  
         count++; 
-        System.out.println(s.charAt(i)); 
+        System.out.print(s.charAt(i)); 	      
       }
    }
   
    if (count < 0)
-	System.out.println ("Номер слова не корректен"); 
-
-  
+	System.out.println ("Номер слова не корректен");
+   else
+	System.out.println (' ');	  
  }
 }
