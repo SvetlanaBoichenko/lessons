@@ -1,9 +1,7 @@
-import java.util.Arrays;                    // работы с массивами
-import java.util.ArrayList;
-import java.io.InputStream;
+// Добавление массива файлов в сужествующий архив
+
 import java.util.zip.*;
 import java.io.*;
-import java.nio.file.*;
 
 public class TestZip02 {
     public static void addFilesToZip (File source, File[] files) {
@@ -46,7 +44,6 @@ public class TestZip02 {
             }
         }
 
-
         public static void main(String[] args) {
             File f = new File ("TextFiles2.zip"); // Создание объекта типа File Содержащий путь и пр атрибуты
             // Созд массив файлов
@@ -54,8 +51,6 @@ public class TestZip02 {
 
             addFilesToZip (f, files);
 
-
         }
-
     }
 
