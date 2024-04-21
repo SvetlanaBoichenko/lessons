@@ -1,9 +1,9 @@
-/*получает на вход два типа (расширения) графических форматов,
+/*ф получает на вход два типа (расширения) графических форматов,
  находит в текущем каталоге все графические файлы, соответствующие первому расширению,
  и конвертирует их в графический формат по второму расширению.*/
 
 import java.util.ArrayList;
-import java.util.Arrays;                    // работы с массивами
+import java.util.Arrays;                   
 import java.awt.image.*;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -47,7 +47,6 @@ public class RenameImages {
              e.printStackTrace();
 
             }
-
         }
 
     public static void main(String[] args) throws IOException {
