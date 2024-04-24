@@ -2,7 +2,6 @@
 //целый ключ + значение строка,
 //затем считывает по ключам все значения и выводит, и затем удаляет все пары.
 
-
 import java.util.HashMap; // import the HashMap class
 import java.util.*;
 import java.util.Arrays;
@@ -15,14 +14,14 @@ public class HMap {
 
         int nextNum = 0;
         Random r =  new Random();
-        int [] rNumarray  = new int [100];
-        char [] chArray = {'q','w','e','r','t','y','1','2','3','4'};
+        int [] rNumarray  = new int [100];                // Для хранения случ неповтор чисел (ключей)
+        char [] chArray = {'q','w','e','r','t','y','1','2','3','4'};.// Для формир строк- любого наполнения
         String str = "";
         int j = 0;
         boolean b = true;
 
         for (int i = 0; i < 100; i++ ) {
-            rNumarray[i] = r.nextInt(1000000);// массив неповтряющихся значений int
+            rNumarray[i] = r.nextInt(1000000);            // массив неповтряющихся значений int
 
             if (i > 0) {
                 j = 0;
@@ -42,20 +41,18 @@ public class HMap {
            }
 
            str = "";
-           for (int k = 0; k < 5; k++) {            // Формиров строк из массива символов
+           for (int k = 0; k < 5; k++) {        // Формиров строк из массива символов
               int z =  r.nextInt(10);
                str = str + chArray [z] ;
            }
 
-            cap.put (rNumarray[i] , str);
+            cap.put (rNumarray[i] , str); // сформровали Мар
         }
-        for (Integer i : cap.keySet()) {
+        for (Integer i : cap.keySet()) {   // Показали
             System.out.println("key: " + i + " value: " + cap.get(i));
         }
-        cap.clear ();
-
+        cap.clear ();                    // Все удалили
     }
-
 }
 
 
