@@ -1,90 +1,74 @@
 import java.io.*;
 import java.util.Random;
 
-
 public class SumFromFiles {
-    public static void main (String[] args) {
-        Random rand = new Random();
+    public static void main (String[] args) throws IOException {
+
         String fpath = "C:\\BSV\\Java2\\IntelliJ\\Files1\\";
-        int n1 =  0;
-        int n2 =  0;
+
         int curSum = 0;
+        int nfiles = 222;
 
-        while (n1 == n2) {
-            n1 =  rand.nextInt (10) + 1;
-            n2 =  rand.nextInt (10) + 1;
-        }
+       Create222files (fpath, nfiles);
 
-        try {
-            curSum = Sum2f (fpath, n1, n2);
+       for (int i = 1; i <= nfiles; i++)
+           curSum = curSum + Sum1f(fpath, i);
 
-       } catch (IOException e) {
-            System.out.println ("Ошибка файла");
-
-            throw new RuntimeException (e);
-
-       }
-
-        System.out.println("Сумма =  " + curSum);
+       System.out.println("Сумма =  " + curSum);
     }
-    static int Sum2f ( String fpath, int a, int b)  throws  IOException {
+
+    static int Sum1f (String fpath, int fnum) throws IOException {
         int sum = 0;
-        String st = "";
-
-        BufferedReader reader = null;
-
-        String fname1;// = new String();
-         fname1 = Integer.toString(a) + ".txt";
-        fname1 = (fpath + fname1);
-         System.out.println(fname1);
-
-
-
-        String fname2 = new String();
-          fname2 = Integer.toString (b) + ".txt";
-
-        fname2 = (fpath + fname2);
-        System.out.println(fname2);
 
         File file1 = null;
-        for (int i = 0; i < 2; i++) {
-            if (i == 0)
-                file1 = new File(fname1);
-            else
-                file1 = new File(fname2);
+        BufferedReader reader = null;
 
-               try {
+        String fname1 = (fpath + fnum + ".txt");
+
+        try {
+            file1 = new File (fname1);
             reader = new BufferedReader (new FileReader (file1));
 
             for (int j = 0; j <= 2; j++) {
-                st = reader.readLine();
+                String  st = reader.readLine();
 
-                if (st == null) {
-                    System.out.println("Число строк меньше 3");
-                    reader.close();
-                }
-                      try {
-                sum = sum + Integer.valueOf(st);
+                sum = sum + Integer.valueOf (st);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
 
-                      } catch (IllegalArgumentException ae) {
-                 System.out.println("Строка не в норме. Выход");
-                  ae.printStackTrace();
-                        return -1;
-                     }
-                  }
-
-                   } catch (IOException e) {
-                   System.out.println("Ошибка при чтении файла");
-                 e.printStackTrace();
-                 return -1;
-                  } finally {
-                if (reader != null) {
-                    System.out.println("Закрыть файл  " + file1.getName());
-                    reader.close();
-                }
-                //       }
+        } finally {
+            if (reader != null) {
+                reader.close();
             }
         }
         return sum;
     }
+
+    // Дополнительная функция для создания n числа файлов
+    public static int Create222files (String path, int nf) throws IOException {
+        Random rand = new Random();
+        int filecount = 0;
+        int num = 0;
+
+        try {
+            for (int i = 1; i <= nf; i++) {
+                File file = new File (path + i + ".txt");
+                BufferedWriter writer = new BufferedWriter (new FileWriter (file));
+
+                for (int j = 0; j <= 2; j++) {     // запись в файл 3х строк
+                    num = rand.nextInt(10) + 1;
+                    writer.write (Integer.toString (num));
+                    writer.newLine();
+                }
+                writer.close();
+                filecount ++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return filecount;
+    }
 }
+
