@@ -17,7 +17,7 @@ public class SumFromFiles2 {
             curSum = curSum + resultfunc [1];       //  Sum1f(fpath, i)[1];
 
             if(resultfunc [0] != 0)
-                lasterr =  resultfunc [0];         //Sum1f(fpath, i)[0];
+                lasterr =  resultfunc [0];          //  Sum1f(fpath, i)[0];
         }
             if (lasterr != 0)
                 System.out.println("код последней ошибки  " + lasterr);
@@ -47,7 +47,7 @@ public class SumFromFiles2 {
         }
 
         catch (FileNotFoundException  fe) { //fe.printStackTrace(); - убрала
-            errcode = -1;
+            errcode = -1;                      // Файл не открылся
         }
 
         catch (IOException e) {
