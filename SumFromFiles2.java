@@ -41,7 +41,6 @@ public class SumFromFiles2 {
 
             for (int j = 0; j <= 2; j++) {
                 String  st = reader.readLine();
-
                 sum = sum +  Integer.parseInt(st); //Integer.valueOf
             }
         }
@@ -49,11 +48,9 @@ public class SumFromFiles2 {
         catch (FileNotFoundException  fe) { //fe.printStackTrace(); - убрала
             errcode = -1;                      // Файл не открылся
         }
-
         catch (IOException e) {
             errcode = -2;                       // ошибки чтения и записи в файл
         }
-
         catch (IllegalArgumentException ie) {
             errcode = -3;                       // обработка некорректного аргумента строки
         }
