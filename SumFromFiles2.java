@@ -54,7 +54,6 @@ public class SumFromFiles2 {
         catch (IllegalArgumentException ie) {
             errcode = -3;                       // обработка некорректного аргумента строки
         }
-
          finally {
             if (reader != null) {
                 reader.close();
