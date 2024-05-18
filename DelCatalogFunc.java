@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;                    // работы с массивами
+import java.util.Arrays;                    
 
 public class DelCatalogFunc {
-    public static boolean delFiles (String cPath)   //
+    public static boolean delFiles (String cPath)   
     {
          ArrayList <ArrayList<File>> retList;
 
-         retList = ScanD (cPath, ".*",  false); //
+         retList = ScanD (cPath, ".*",  false); 
 
          if (retList.get(1).size() > 0 ) return false; // есть подкаталоги - ничего не удалять
 
