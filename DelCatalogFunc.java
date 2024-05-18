@@ -11,14 +11,14 @@ public class DelCatalogFunc {
 
          if (retList.get(1).size() > 0 ) return false; // есть подкаталоги - ничего не удалять
 
-        for (File file: retList.get(0))
-            file.delete();
-
+        for (File file: retList.get(0)) {
+            if (!file.delete())
+                return false;
+        }
         return true;
     }
 
-
-    public static ArrayList <ArrayList<File>> ScanD (String cPath, String ext,  boolean b)   
+    public static ArrayList <ArrayList<File>> ScanD (String cPath, String ext,  boolean b)   //String mExt,
     {
         String curfile_path = "";
         int level = 1;
@@ -27,7 +27,6 @@ public class DelCatalogFunc {
         ArrayList<File> myList2 = new ArrayList<File>(); // Создание списка 2 для директориев
 
         ArrayList<File> curlist = new ArrayList<File>();
-
         ArrayList <ArrayList<File>> retList  = new ArrayList <> (); // Создание списка 2 для директориев
 
         File root = new File (cPath);                    // Созд объ типа File
@@ -41,7 +40,7 @@ public class DelCatalogFunc {
             for (File file : fileArray) {                   // Цикл2 по всем элементам массива внутри
                 if (file.isDirectory ()) {                  // Если наткнулись на директорий :
                     curlist.addAll (Arrays.asList (file.listFiles() ));
-                    if(depth != 0)             //это сам корень
+                    if(depth != 0)                          //это сам корень
                         myList1.add(file);
 
                 } else {
@@ -55,12 +54,10 @@ public class DelCatalogFunc {
                 }
             }
         }
-
         retList.add (myList2);
         retList.add(myList1);
         return retList;
     }
-
 
     public static void main(String[] args) {
         String cPath = "C:\\Temporal\\";
@@ -69,6 +66,6 @@ public class DelCatalogFunc {
         if (exito)
             System.out.println("Удалено");
         else
-            System.out.println("Файлы не удалены. Каталог не существует или содержит подкаталог");
+            System.out.println("Файлы не удалены. Каталог не доступен или содержит подкаталог");
     }
 }
