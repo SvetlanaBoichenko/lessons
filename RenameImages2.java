@@ -13,7 +13,7 @@ public class RenameImages2 {
 
         ArrayList<ArrayList<File>> fileList;
 
-        fileList = ScanD(".", ext1, false); // поиск файлов в тек каталоге
+        fileList = ScanD (".", ext1, false); // поиск файлов в тек каталоге
 
         if (fileList.get(0).size() <= 0 ) return;
 
@@ -24,11 +24,10 @@ public class RenameImages2 {
             String fnewname = ".\\" + fil.getName().substring (0, ind) + ext2;
             File newf = new File (fnewname);    // для нового файла заготовка
 
-            String typeoffile = "";             // для казания типа файла БЕЗ .
+            String typeoffile = "";             // для указания типа файла БЕЗ .
 
             if (ext2.length() > 1) {           // на всякий случай
                 typeoffile = ext2.substring (1);
-
                 ImageIO.write (img, typeoffile, newf);
             }
         }
