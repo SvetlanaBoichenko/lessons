@@ -18,7 +18,7 @@ public class DelCatalogFunc {
     }
 
 
-    public static ArrayList <ArrayList<File>> ScanD (String cPath, String ext,  boolean b)   //String mExt,
+    public static ArrayList <ArrayList<File>> ScanD (String cPath, String ext,  boolean b)   
     {
         String curfile_path = "";
         int level = 1;
