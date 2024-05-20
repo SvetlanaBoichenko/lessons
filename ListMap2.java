@@ -22,17 +22,16 @@ public class ListMap2 {
                 map.put(mkey, chet);                // увелич и меняем счетч
             }
 
-               if (chet > ntimes) {
-                   ResList.add(mkey);               // вместо if (!ResList.contains(mkey))
-                   map.put (mkey,(-1)*nlistsize);   // знач по кеу уже никгда не превысит N
-                }
+            if (chet == ntimes)
+                ResList.add (mkey);               //
+
         }
         return  ResList;
     }
 
     public static void main(String[] args) {
         Random r = new Random();
-        int nTimes = 0;
+        int nTimes = 9;
         ArrayList<Integer> nList;
         ArrayList<Integer> nList2 = new ArrayList<>();
 
