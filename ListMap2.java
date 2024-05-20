@@ -7,28 +7,32 @@ public class ListMap2 {
         ArrayList<Integer> ResList = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();  // Создали мар
 
-        for (int j = 0; j <= 99; j++) {         //список содерж 1-10, что соотв ключам, значения - счетчики
-            int mkey = nList1.get (j);         // Знач в диапазоне 1-10 из листа - это будет ключом
+        int nlistsize = nList1.size();
 
-            if (map.containsKey (mkey)) {
-                int chet = map.get(mkey);        //Вытащить знач(счетчик), соотв ключу             
-                chet++;
-                map.put(mkey, chet); // увелич и меняем счетч
+        for (int j = 0; j <= nlistsize-1; j++) {    //список содерж 1-10, что соотв ключам, значения - счетчики
+            int mkey = nList1.get (j);              // Знач в диапазоне 1-10 из листа - это будет ключом
+            int chet = 0;                           // счетчик - второе значение map
+            
+            Integer mval = map.get (mkey);                  //Вытащить знач(счетчик), соотв ключу
 
-                if (chet > ntimes) {
-                    if (!ResList.contains(mkey)) {
-                        ResList.add(mkey);
-                }
+            if (mval == null )
+                map.put(mkey, 1);                   // это 0++
+            else {
+                chet = mval.intValue() + 1;
+                map.put(mkey, chet);                // увелич и меняем счетч
             }
-            else
-                map.put(mkey, 1);}
+
+               if (chet > ntimes) {
+                   ResList.add(mkey);               // вместо if (!ResList.contains(mkey))
+                   map.put (mkey,(-1)*nlistsize);   // знач по кеу уже никгда не превысит N
+                }
         }
         return  ResList;
     }
 
     public static void main(String[] args) {
         Random r = new Random();
-        int nTimes = 12;
+        int nTimes = 0;
         ArrayList<Integer> nList;
         ArrayList<Integer> nList2 = new ArrayList<>();
 
