@@ -11,8 +11,7 @@ public class ListMap2 {
             int mkey = nList1.get (j);         // Знач в диапазоне 1-10 из листа - это будет ключом
 
             if (map.containsKey (mkey)) {
-                int chet = map.get(mkey);        //Вытащить знач(счетчик), соотв ключу
-                //Ключ - знач из листа, ind - счетчик
+                int chet = map.get(mkey);        //Вытащить знач(счетчик), соотв ключу             
                 chet++;
                 map.put(mkey, chet); // увелич и меняем счетч
 
